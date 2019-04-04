@@ -16,7 +16,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edtData1, edtData2, edtData3, edtCatatan;
     TextView tvAverage, tvMax, tvMin, tvMedian;
-    Button btnCalculate, btnReset, btnSentData, btnSentObject, btnDialNumber, btnOpenMap, btnOpenEmail;
+    Button btnCalculate, btnReset, btnSentData, btnSentObject, btnDialNumber, btnOpenMap, btnOpenEmail, btnFragment;
 
     String inputData1, inputData2, inputData3;
     Double median, max, min, mean;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialNumber = findViewById(R.id.dialnumber);
         btnOpenMap = findViewById(R.id.open_map);
         btnOpenEmail = findViewById(R.id.open_email);
+        btnFragment = findViewById(R.id.belajar_fragment);
 
         btnCalculate.setOnClickListener(this);
         btnReset.setOnClickListener(this);
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialNumber.setOnClickListener(this);
         btnOpenMap.setOnClickListener(this);
         btnOpenEmail.setOnClickListener(this);
+        btnFragment.setOnClickListener(this);
 
         if(savedInstanceState != null){
             String hasilAverage = savedInstanceState.getString(STATE_AVERAGE);
@@ -160,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Judul Email");
             emailIntent.putExtra(Intent.EXTRA_TEXT, "Isi Email");
             startActivity(Intent.createChooser(emailIntent, "Send email..."));
+        }else if (v.getId() == R.id.belajar_fragment){
+            startActivity(new Intent(MainActivity.this, FragmentActivity.class));
         }
     }
 

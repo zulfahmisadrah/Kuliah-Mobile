@@ -217,6 +217,11 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/open_email"
                 android:text="Open Email"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/belajar_fragment"
+                android:text="Belajar Fragment"/>
 
         </LinearLayout>
 

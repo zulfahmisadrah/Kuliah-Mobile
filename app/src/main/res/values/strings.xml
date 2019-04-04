@@ -16,4 +16,6 @@
     <string name="nim">NIM\t\t\t\t\t\t\t\t\t\t\t:</string>
     <string name="program_studi">Program Studi\t:</string>
     <string name="email">Email\t\t\t\t\t\t\t\t\t:</string>
+    <string name="ini_adalah_fragment_1">Ini adalah Fragment 1</string>
+    <string name="kalau_yang_ini_fragment_2">Kalau yang ini Fragment 2</string>
 </resources>
