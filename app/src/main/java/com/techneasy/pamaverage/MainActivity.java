@@ -1,6 +1,7 @@
 package com.techneasy.pamaverage;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,7 +16,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edtData1, edtData2, edtData3, edtCatatan;
     TextView tvAverage, tvMax, tvMin, tvMedian;
-    Button btnCalculate, btnReset, btnSentData, btnSentObject;
+    Button btnCalculate, btnReset, btnSentData, btnSentObject, btnDialNumber, btnOpenMap, btnOpenEmail;
 
     String inputData1, inputData2, inputData3;
     Double median, max, min, mean;
@@ -43,11 +44,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtCatatan = findViewById(R.id.edt_catatan);
         btnSentData = findViewById(R.id.kirim);
         btnSentObject = findViewById(R.id.send_object);
+        btnDialNumber = findViewById(R.id.dialnumber);
+        btnOpenMap = findViewById(R.id.open_map);
+        btnOpenEmail = findViewById(R.id.open_email);
 
         btnCalculate.setOnClickListener(this);
         btnReset.setOnClickListener(this);
         btnSentData.setOnClickListener(this);
         btnSentObject.setOnClickListener(this);
+        btnDialNumber.setOnClickListener(this);
+        btnOpenMap.setOnClickListener(this);
+        btnOpenEmail.setOnClickListener(this);
 
         if(savedInstanceState != null){
             String hasilAverage = savedInstanceState.getString(STATE_AVERAGE);
@@ -138,6 +145,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId()==R.id.send_object){
             Intent moveObject = new Intent(MainActivity.this, SendObjectActivity.class);
             startActivity(moveObject);
+        }else if (v.getId() == R.id.dialnumber){
+            String phoneNumber = "085299041910";
+            Intent dialNumber = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+            startActivity(dialNumber);
+        }else if (v.getId() == R.id.open_map){
+            Uri gmmIntentUri = Uri.parse("geo:0,0?q=Fakultas Teknik Unhas");
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+            mapIntent.setPackage("com.google.android.apps.maps");
+            startActivity(mapIntent);
+        }else if (v.getId() == R.id.open_email){
+            Uri emailIntentUri = Uri.fromParts("mailto","abc@gmail.com", null);
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO, emailIntentUri );
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Judul Email");
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "Isi Email");
+            startActivity(Intent.createChooser(emailIntent, "Send email..."));
         }
     }
 

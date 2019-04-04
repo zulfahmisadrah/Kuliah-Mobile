@@ -202,6 +202,22 @@
                 android:text="To Object Activity"
                 android:layout_marginRight="10dp"
                 android:textSize="18sp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dialnumber"
+                android:text="Dial Number"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/open_map"
+                android:text="Open Map"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/open_email"
+                android:text="Open Email"/>
+
         </LinearLayout>
 
     </ScrollView>
